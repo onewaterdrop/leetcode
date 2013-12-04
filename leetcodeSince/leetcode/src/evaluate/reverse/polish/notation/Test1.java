@@ -26,7 +26,7 @@ public class Test1 {
 		
 		int result=0;
 		try {
-			result = new Test1().RPN(stack);
+			result = new Test1().evalRPN(tokens);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,8 +39,9 @@ public class Test1 {
 	
 	
 	
-	public int RPN(java.util.Deque<String> s) throws Exception{
-		
+    public int evalRPN(String[] tokens) throws Exception {
+        
+        java.util.Deque<String> s = new java.util.LinkedList<String>(Arrays.asList(tokens));
 		java.util.Deque<Integer> t2 = new java.util.LinkedList<Integer>();
 		
 		
@@ -106,20 +107,5 @@ public class Test1 {
 		
 	}
 	
-	
-	
-	private boolean isOperator(String p) {
-		
-		if("*".equals(p)||"/".equals(p) ||"-".equals(p)||"+".equals(p)){
-			return true;
-		}else{
-			
-			return false;
-		}
-
-	}
-
-
-
 
 }
