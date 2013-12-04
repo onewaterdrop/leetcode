@@ -16,7 +16,9 @@ public class Test1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String[] tokens = {"2","1","+","3","*"};
+//		String[] tokens = {"2","1","+","3","*"};
+		
+		String[] tokens ={"0","3","/"};
 		
 //		String[] tokens={"4", "13", "5", "/", "+"};
 		
@@ -25,13 +27,7 @@ public class Test1 {
 		
 		
 		int result=0;
-		try {
-			result = new Test1().evalRPN(tokens);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		result = new Test1().evalRPN(tokens);
 		System.out.println("result="+ result);
 		
 		
@@ -41,15 +37,16 @@ public class Test1 {
 	
     public int evalRPN(String[] tokens) {
         
+        
         java.util.Deque<String> s = new java.util.LinkedList<String>(java.util.Arrays.asList(tokens));
-		java.util.Deque<Integer> t2 = new java.util.LinkedList<Integer>();
+        java.util.Deque<Integer> t2 = new java.util.LinkedList<Integer>();
 		
 		
 		while(s.size()>0){
 			
 			if("*".equals(s.peek())){
-
-				System.out.println("current oprand is=" + s.pop());
+				
+				s.pop();
 				if(t2.size()>1){
 					t2.push(t2.pop()*t2.pop());
 				}else{
@@ -58,8 +55,7 @@ public class Test1 {
 					
 				
 			}else if("-".equals(s.peek())){
-
-				System.out.println("current oprand is=" + s.pop());
+				s.pop();
 				if(t2.size()>1){
 					int secIn =t2.pop();
 					int firstIn = t2.pop();
@@ -69,8 +65,7 @@ public class Test1 {
 				}
 				
 			}else if("+".equals(s.peek())){
-
-				System.out.println("current oprand is=" + s.pop());
+				s.pop();
 				if(t2.size()>1){
 					t2.push(t2.pop()+t2.pop());
 				}else{
@@ -78,32 +73,44 @@ public class Test1 {
 				}
 				
 			}else if("/".equals(s.peek())){
-
-				System.out.println("current oprand is=" + s.pop());
+				s.pop();
 				if(t2.size()>1){
 					int secIn =t2.pop();
+					
+					System.out.println(secIn);
+					
 					int firstIn = t2.pop();
-					t2.push(firstIn/secIn);
+					
+					System.out.println(firstIn);
+					
+					int result = firstIn/secIn;
+					
+					System.out.println("res = "+result);
+					t2.push(result);
 				}else{
-					return Integer.MAX_VALUE;
+				    return Integer.MAX_VALUE;
 				}
 				
 			}else{
 				t2.push(Integer.parseInt(s.pop()));
+				System.out.println("pushed in=" + t2.peek());
 			}
 			
 		}
 		
-		if(t2.size()>1){
-			return Integer.MAX_VALUE;
-		}else if(t2.size()==1){
-			return t2.pop();
+		System.out.println("t2 size" + t2.size());
+		
+		if(t2.size()==1){
+			int result = t2.pop();
+			System.out.println("returning "+ result);
+			return result;
+			
 		}else{
+			
+			System.out.println(Integer.MAX_VALUE);
 			return Integer.MAX_VALUE;
 		}
 
-		
-		
 		
 	}
 	
