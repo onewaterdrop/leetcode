@@ -39,9 +39,9 @@ public class Test1 {
 	
 	
 	
-    public int evalRPN(String[] tokens) throws Exception {
+    public int evalRPN(String[] tokens) {
         
-        java.util.Deque<String> s = new java.util.LinkedList<String>(Arrays.asList(tokens));
+        java.util.Deque<String> s = new java.util.LinkedList<String>(java.util.Arrays.asList(tokens));
 		java.util.Deque<Integer> t2 = new java.util.LinkedList<Integer>();
 		
 		
@@ -53,7 +53,7 @@ public class Test1 {
 				if(t2.size()>1){
 					t2.push(t2.pop()*t2.pop());
 				}else{
-					throw new Exception("Error input");
+					return Integer.MAX_VALUE;
 				}
 					
 				
@@ -65,7 +65,7 @@ public class Test1 {
 					int firstIn = t2.pop();
 					t2.push(firstIn-secIn);
 				}else{
-					throw new Exception("Error input");
+					return Integer.MAX_VALUE;
 				}
 				
 			}else if("+".equals(s.peek())){
@@ -74,7 +74,7 @@ public class Test1 {
 				if(t2.size()>1){
 					t2.push(t2.pop()+t2.pop());
 				}else{
-					throw new Exception("Error input");
+					return Integer.MAX_VALUE;
 				}
 				
 			}else if("/".equals(s.peek())){
@@ -85,7 +85,7 @@ public class Test1 {
 					int firstIn = t2.pop();
 					t2.push(firstIn/secIn);
 				}else{
-					throw new Exception("Error input");
+					return Integer.MAX_VALUE;
 				}
 				
 			}else{
@@ -95,11 +95,11 @@ public class Test1 {
 		}
 		
 		if(t2.size()>1){
-			throw new Exception("too much input");
+			return Integer.MAX_VALUE;
 		}else if(t2.size()==1){
 			return t2.pop();
 		}else{
-			throw new Exception("unknow error"); 
+			return Integer.MAX_VALUE;
 		}
 
 		
