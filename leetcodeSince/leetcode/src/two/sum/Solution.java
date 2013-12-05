@@ -41,7 +41,7 @@ public class Solution {
     		if(numbers[i]+numbers[j]<target && i<len-1 ){
     			i++;
     			continue;			
-    		}else if(numbers[i]+numbers[j]<target && j<=len-1){
+    		}else if(numbers[i]+numbers[j]<target && j<len-1){
     			j++;
     			continue;
     		}else if(numbers[i]+numbers[j]>target && i<=len-1 ){
