@@ -12,7 +12,7 @@ public class Solution {
     	
     	Arrays.sort(num);
     	
-    	System.out.println(Arrays.toString(num));
+ //   	System.out.println(Arrays.toString(num));
     	java.util.Set<ArrayList<Integer>> L =new java.util.HashSet<ArrayList<Integer>>();
     	
     	
@@ -20,7 +20,7 @@ public class Solution {
     		for(int j=0;j<i;j++){
     			for(int k=0;k<j;k++){
     				
-    				System.out.println(Arrays.asList(new Integer[]{num[i],num[j],num[k]}).toString());
+ //   				System.out.println(Arrays.asList(new Integer[]{num[i],num[j],num[k]}).toString());
     				
     				if(num[i]+num[j]+num[k]==0){
     					
