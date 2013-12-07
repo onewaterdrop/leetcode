@@ -27,6 +27,24 @@ public class Solution {
     	return L;
     	
     }
+    
+    public int maxDepth(TreeNode root) {
+        if(root == null)return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return left>right?left+1:right+1;	
+    	
+    }
+    
+    public int maxDepth2(TreeNode root) {
+    	if(root == null)return 0;
+    	TreeNode cur=root;
+    	int i=0;
+    	while(cur.left!=null){cur=cur.left; i++;}
+    	
+    	return 0;
+    }
+    
     public ArrayList<Integer> postorderTraversal3(TreeNode root) {
     	
     	java.util.ArrayList<Integer> L = new ArrayList<Integer>();
@@ -104,11 +122,15 @@ public class Solution {
 		Solution sol = new Solution();
 		TreeNode node1 = new TreeNode(1);
 		TreeNode node2 = new TreeNode(2);
-//		TreeNode node3 = new TreeNode(3);
+		TreeNode node3 = new TreeNode(3);
 		node1.left=node2;
-//		node2.left=node3;
+		node1.right=node3;
 		java.util.ArrayList<Integer> L = sol.postorderTraversal(node1) ;
     	System.out.println(L.toString());
+    	
+    	System.out.println("max deepth=" + sol.maxDepth(node1));
+    	
+    	
  }
 }
 
