@@ -105,6 +105,80 @@ public class Solution {
     	
     }
     
+    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+    	
+    	java.util.ArrayList<Integer> L = new ArrayList<Integer>();
+    	
+    	if(root ==null)return L;
+    	
+    	java.util.Deque<TreeNode> s = new java.util.LinkedList<TreeNode>();
+    	java.util.Deque<TreeNode> out = new java.util.LinkedList<TreeNode>();
+
+    	s.push(root);	
+    	while(!s.isEmpty()){
+        	TreeNode cur = s.peek();
+        	out.push(cur);
+        	L.add(cur.val);
+        	s.pop();
+        	if(cur.right!=null)s.push(cur.right);
+        	if(cur.left!=null)s.push(cur.left);
+    	}
+    	
+    	return L;
+    	
+    }
+    
+    public ArrayList<Integer> inorderTraversal(TreeNode root) {
+    	
+    	java.util.ArrayList<Integer> L = new ArrayList<Integer>();
+    	
+    	if(root ==null)return L;
+    	
+    	java.util.Deque<TreeNode> s = new java.util.LinkedList<TreeNode>();
+    	TreeNode cur = root;	
+    	while(true){
+ 	
+        	if(cur!=null){
+        		s.push(cur);
+            	cur=cur.left;
+        	}else{
+        		if(s.isEmpty())break;
+                cur = s.pop();
+        		
+                L.add(cur.val);
+                
+                cur = cur.right;
+        		
+        	}
+    	}
+    	
+    	return L;
+        	
+    }
+    public ArrayList<Integer> inorderTraversal2(TreeNode root) {
+    	
+    	java.util.ArrayList<Integer> L = new ArrayList<Integer>();
+    	
+    	java.util.Deque<TreeNode> s = new java.util.LinkedList<TreeNode>();
+    	TreeNode cur = root;	
+    	while(!s.isEmpty() || cur !=null){
+    		
+    		if(cur!=null){
+    			s.push(cur);
+    			cur=cur.left;
+    		}else{
+    			cur = s.pop();
+    			
+    			L.add(cur.val);
+    			
+    			cur = cur.right;
+    			
+    		}
+    	}
+    	
+    	return L;
+    	
+    }
     
     public ArrayList<Integer> postorderTraversal(TreeNode root) {
     	
@@ -145,7 +219,9 @@ public class Solution {
 		node1.left=node2;
 		node1.right=node3;
 		java.util.ArrayList<Integer> L = sol.postorderTraversal(node1) ;
+		java.util.ArrayList<Integer> L1 = sol.preorderTraversal(node1) ;
     	System.out.println(L.toString());
+    	System.out.println(L1.toString());
     	
     	System.out.println("max deepth=" + sol.maxDepth(node1));
     	
