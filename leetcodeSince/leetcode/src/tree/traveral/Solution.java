@@ -1,4 +1,4 @@
-package postorder.traveral;
+package tree.traveral;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -151,6 +151,24 @@ public class Solution {
     	
     	
  }
+    
+    
+    
+    
+    public static int searchInsert(int[] A, int target) {
+        if(A.length<=0)return 0;
+        if(A[0]>target) return 0;
+        if(A[A.length-1]<target) return A.length;
+        for(int i=0;i<A.length;i++){
+            if(A[i]>=target) return i;
+        }
+        
+		return 0;
+        
+        
+    }
+    
+    
 }
 
  class TreeNode {
