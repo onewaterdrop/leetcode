@@ -212,6 +212,7 @@ public class Solution {
      * @param args
      */
     public static void main(String[] args) {
+    	
 		Solution sol = new Solution();
 		TreeNode node1 = new TreeNode(1);
 		TreeNode node2 = new TreeNode(2);
