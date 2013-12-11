@@ -1,6 +1,5 @@
 package stair;
 
-import java.math.BigInteger;
 
 public class Solution {
 
@@ -15,6 +14,11 @@ public class Solution {
 		System.out.println(Integer.MAX_VALUE);
 
 	}
+	
+	public static int climbStair(int n) {
+	       double s = Math.sqrt(5.0);
+	        return (int)((Math.pow((1+s)/2,n+1)+Math.pow((1-s)/2,n+1))/s+0.5);
+		}
 
 	public static int climbStairs(int n) {
 		if (n <= 0)
@@ -34,12 +38,12 @@ public class Solution {
 		return (int)sum;
 	}
 
-	static BigInteger choose(long n, final long m) {
-		BigInteger r = BigInteger.valueOf(1);
+	static java.math.BigInteger choose(long n, final long m) {
+		java.math.BigInteger r = java.math.BigInteger.valueOf(1);
 		if (2 * m > n)
 			choose(n, n - m);
 		for (int i = 1; i <= m; n--, i++) {
-			r = (r.multiply(BigInteger.valueOf(n))).divide(BigInteger
+			r = (r.multiply(java.math.BigInteger.valueOf(n))).divide(java.math.BigInteger
 					.valueOf(i));
 		}
 		return (r);

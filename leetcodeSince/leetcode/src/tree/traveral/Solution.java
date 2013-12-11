@@ -1,8 +1,7 @@
 package tree.traveral;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.Arrays;
 
 /**
  * Definition for binary tree
@@ -227,6 +226,8 @@ public class Solution {
     	System.out.println("max deepth=" + sol.maxDepth(node1));
     	
     	
+    	sortedArrayToBST(new int[]{-1,0,1,2});
+    	
  }
     
     
@@ -245,6 +246,41 @@ public class Solution {
         
     }
     
+    public static TreeNode sortedArrayToBST(int[] num) {
+        if(num.length==0)return null;
+        int rootIndex = num.length/2;
+        
+        System.out.println("Array is" + Arrays.toString(num));
+        
+//        if(num.length==1)return new TreeNode(num[0]);
+        
+        TreeNode root = new TreeNode(num[rootIndex]);
+//        if(rootIndex-1==0){
+//            root.left =  new TreeNode(num[0]);
+//        }else 
+        	
+        if(rootIndex-1>=0){
+        	
+            int[] left = Arrays.copyOfRange(num, 0, rootIndex);
+            
+            System.out.println("Array is" + Arrays.toString(left));
+            
+            root.left =  sortedArrayToBST(left);
+        }
+//        if(rootIndex+1==num.length-1){
+//            root.right = new TreeNode(num[num.length-1]);
+//        }else 
+//        	
+        if(rootIndex+1<=num.length-1){
+            int[] right = Arrays.copyOfRange(num, rootIndex+1, num.length);
+            
+            System.out.println("Array is" + Arrays.toString(right));
+            root.right = sortedArrayToBST(right);
+        }
+        return root;
+        
+    }
+
     
 }
 

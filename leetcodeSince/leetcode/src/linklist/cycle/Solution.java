@@ -4,6 +4,12 @@ public class Solution {
 
 	/**
 	 * @param args
+	 * 
+	 *  Given a linked list, determine if it has a cycle in it.
+	 *  Follow up: Can you solve it without using extra space? 
+	 * 
+	 * 
+	 * 
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -19,6 +25,8 @@ public class Solution {
 		node3.next = node4;
 		node4.next = node5;
 		node5.next = node6;
+		
+
 		
 		assert hasCycle(node1) ==false;
 		System.out.println(hasCycle(node1) );
@@ -104,7 +112,7 @@ public class Solution {
 		
 		
 	}
-
+	
 
 }
 
