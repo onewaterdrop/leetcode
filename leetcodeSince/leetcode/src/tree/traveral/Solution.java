@@ -2,6 +2,9 @@ package tree.traveral;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Definition for binary tree
@@ -216,8 +219,15 @@ public class Solution {
 		TreeNode node1 = new TreeNode(1);
 		TreeNode node2 = new TreeNode(2);
 		TreeNode node3 = new TreeNode(3);
+		TreeNode node4 = new TreeNode(4);
+		TreeNode node5 = new TreeNode(5);
 		node1.left=node2;
 		node1.right=node3;
+		node3.left = node4;
+		node4.left =node5;
+		
+		System.out.println(sol.levelOrderBottom(node1));
+		
 		java.util.ArrayList<Integer> L = sol.postorderTraversal(node1) ;
 		java.util.ArrayList<Integer> L1 = sol.preorderTraversal(node1) ;
     	System.out.println(L.toString());
@@ -281,26 +291,67 @@ public class Solution {
         
     }
     
-    
     public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
+        
+        ArrayList<TreeNode>  l = new ArrayList<TreeNode>();
+
+        ArrayList<ArrayList<Integer>>  ret = new ArrayList<ArrayList<Integer>>();    
+        if(root==null) return ret;
+        l.add(root);
+
+        while(l.size()>0){
+
+            java.util.ArrayList<Integer> line = new java.util.ArrayList<Integer>();
+            for(TreeNode t:l){
+            	line.add(t.val);
+            }
+            
+            ret.add(0, line);
+            System.out.println(line);
+  
+            ArrayList<TreeNode> nodeLine = new ArrayList<TreeNode>();
+
+            for(TreeNode t:l){
+                if(t.left !=null) nodeLine.add(t.left);
+                if(t.right !=null) nodeLine.add(t.right);
+                }
+            l.removeAll(l);
+            l.addAll(nodeLine);
+        
+        }
+        
+        
+        return ret;
+        
+    }
+    
+    
+    
+    public ArrayList<ArrayList<Integer>> levelOrderBottom2(TreeNode root) {
         
         ArrayList<ArrayList<TreeNode>>  l = new ArrayList<ArrayList<TreeNode>>();
         ArrayList<ArrayList<Integer>>  ret = new ArrayList<ArrayList<Integer>>();    
         ArrayList<ArrayList<Integer>>  retReverse = new ArrayList<ArrayList<Integer>>();  
         java.util.Deque<TreeNode>  stack = new java.util.LinkedList<TreeNode>();
         if(root==null) return ret;
-        
         l.add(new ArrayList<TreeNode>(java.util.Arrays.asList(new TreeNode[]{root})));
+        
         int i=0;
 
         while(!reachingEnd(l.get(i))){
             ArrayList<TreeNode> temp = new ArrayList<TreeNode>();
+            ArrayList<Integer> temp1 = new ArrayList<Integer>();
             for(TreeNode t:l.get(i)){
                 if(t.left !=null) temp.add(t.left);
                 if(t.right !=null) temp.add(t.right);
                 }
                 
             l.add(temp);
+//            for(TreeNode y:temp){
+//                temp1.add(y.val);
+//            }
+//            ret.add(temp1);
+            
             i++;
         
         }
@@ -311,12 +362,13 @@ public class Solution {
             for(TreeNode y:x){
                 temp1.add(y.val);
             }
-            
+            System.out.println(temp1);
             ret.add(temp1);
-        }
+        }        
         
+        System.out.println("ret size =" + ret.size());
+        for(i=ret.size()-1;i>=0;i--)retReverse.add(ret.get(i));
         
-        for(i=ret.size()-1;i>=0;i++)retReverse.add(ret.get(i));
         return retReverse;
         
     }
