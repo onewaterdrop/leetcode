@@ -280,6 +280,55 @@ public class Solution {
         return root;
         
     }
+    
+    
+    public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
+        
+        ArrayList<ArrayList<TreeNode>>  l = new ArrayList<ArrayList<TreeNode>>();
+        ArrayList<ArrayList<Integer>>  ret = new ArrayList<ArrayList<Integer>>();    
+        ArrayList<ArrayList<Integer>>  retReverse = new ArrayList<ArrayList<Integer>>();  
+        java.util.Deque<TreeNode>  stack = new java.util.LinkedList<TreeNode>();
+        if(root==null) return ret;
+        
+        l.add(new ArrayList<TreeNode>(java.util.Arrays.asList(new TreeNode[]{root})));
+        int i=0;
+
+        while(!reachingEnd(l.get(i))){
+            ArrayList<TreeNode> temp = new ArrayList<TreeNode>();
+            for(TreeNode t:l.get(i)){
+                if(t.left !=null) temp.add(t.left);
+                if(t.right !=null) temp.add(t.right);
+                }
+                
+            l.add(temp);
+            i++;
+        
+        }
+        
+        
+        for(ArrayList<TreeNode> x:l){
+            ArrayList<Integer> temp1 = new ArrayList<Integer>();
+            for(TreeNode y:x){
+                temp1.add(y.val);
+            }
+            
+            ret.add(temp1);
+        }
+        
+        
+        for(i=ret.size()-1;i>=0;i++)retReverse.add(ret.get(i));
+        return retReverse;
+        
+    }
+    
+    public boolean reachingEnd(ArrayList<TreeNode> nodes){
+        for(TreeNode t:nodes){
+            if(t.right !=null || t.left !=null) return false;
+        }
+        
+        return true;
+        
+    }
 
     
 }

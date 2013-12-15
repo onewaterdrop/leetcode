@@ -1,8 +1,6 @@
 package Roman;
 
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Solution {
 
@@ -14,9 +12,10 @@ public class Solution {
 		System.out.println("IV="+ romanToInt("IV"));
 		System.out.println(romanToInt("IV"));
 		System.out.println(romanToInt("MIV"));
-		System.out.println(romanToInt("MMCMXCIV"));		
+		System.out.println(romanToInt("MMMCMCIV"));		
 	}
 	
+
 	enum numerals{
 		I,
 		V,
