@@ -15,6 +15,7 @@ public class Solution {
 		System.out.println(romanToInt("MMMCMCIV"));		
 	}
 	
+	
 
 	enum numerals{
 		I,
@@ -27,6 +28,14 @@ public class Solution {
 		
 	}
 	
+    public String intToRoman(int num) {
+    	
+    	
+    	
+    	
+    	return null;
+        
+    }
 	
     public static int romanToInt(String s) {
         

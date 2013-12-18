@@ -11,7 +11,7 @@ public class Solution {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(permute(new int[]{1,2,3}));
+		System.out.println(permute(new int[]{1,2,3,4,5,6,7}));
 
 	}
     public static ArrayList<ArrayList<Integer>> permute(int[] num) {
