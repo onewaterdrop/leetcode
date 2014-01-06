@@ -47,8 +47,12 @@ public class RN {
     public static void test(long n) {
         System.out.println(n + " = " + roman(n));
     }
+    
+
  
     public static void main(String[] args) {
+    	
+    	java.util.Map<Integer,Integer> m = new java.util.HashMap<Integer,Integer>();
         test(1999);
         test(25);
         test(944);
