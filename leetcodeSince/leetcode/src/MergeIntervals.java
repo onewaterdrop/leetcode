@@ -45,14 +45,13 @@ public class MergeIntervals {
 			
 		});
 		
-		int len = intervals.size();
+		
 		int i=0;
-		while(i<len-1){
-			int curI=i;
+		while(i<intervals.size()-1){
+//			int curI=i;
 			if(intervals.get(i).y>=intervals.get(i+1).x){
 				intervals.get(i).y=Math.max(intervals.get(i).y, intervals.get(i+1).y);
 				intervals.remove(i+1);
-				len--;
 			}else{
 				i++;
 			}
