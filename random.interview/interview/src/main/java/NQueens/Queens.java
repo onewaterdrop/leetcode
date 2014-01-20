@@ -26,7 +26,7 @@ public class Queens {
 			for(int j=0;j<N;j++){
 				if(placable(r,j)){
 					queen[r]=j;
-					if(r==7){
+					if(r==N-1){
 						System.out.println("Solution:"+ cnt++);
 						printQueens(queen);
 					}else{
@@ -67,7 +67,7 @@ public class Queens {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int N=8;
+		int N=4;
 		Queens q = new Queens(N);
 		q.place(0,N);
 

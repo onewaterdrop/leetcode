@@ -1,5 +1,8 @@
 package linklist.cycle;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Solution {
 
 	/**
@@ -20,6 +23,9 @@ public class Solution {
 		ListNode node5 = new ListNode(5);
 		ListNode node6 = new ListNode(6);
 		
+	//	ArrayList<Integer> l= new ArrayList<Integer>();
+		System.out.println(Arrays.toString(getRow(5).toArray()));
+		
 		node1.next = node2;
 		node2.next = node3;
 		node3.next = node4;
@@ -32,6 +38,24 @@ public class Solution {
 		System.out.println(hasCycle(node1) );
 		
 	}
+	
+    public static ArrayList<Integer> getRow(int rowIndex) {
+        Integer[] array=new Integer[rowIndex+1];
+    for (int i = 0; i <= rowIndex; i++) {
+        for (int j = i-1; j > 0; j--){
+            array[j] = array[j-1] + array[j];
+        }
+        array[i]=1;
+    }
+    
+    ArrayList<Integer> a = new ArrayList<Integer>();
+    for(int i=0;i<=rowIndex;i++){
+    	a.add(array[i]);
+    }
+    
+    return a;
+    
+    }
 
 	public static boolean hasCycle2(ListNode head) {
 
