@@ -39,6 +39,7 @@ public class Queens {
 	
 	
     public void printQueens(int[] x) {
+    	
         int N = x.length;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
@@ -67,7 +68,7 @@ public class Queens {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int N=4;
+		int N=8;
 		Queens q = new Queens(N);
 		q.place(0,N);
 

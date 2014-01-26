@@ -1,6 +1,9 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 
 public class MergeIntervals {
@@ -10,6 +13,8 @@ public class MergeIntervals {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		Set<Character> s = new HashSet(Arrays.asList(new Character[]{'1'}));
 		Span s1 = new Span(2,3);
 		Span s2 = new Span(2,6);
 		Span s3 = new Span(5,5);
@@ -22,7 +27,7 @@ public class MergeIntervals {
 		intervals.add(s3);
 		intervals.add(s4);
 		intervals.add(s5);
-		intervals.add(new Span(2,6));
+		intervals.add(new Span(99,6));
 //		intervals.add(new Span(-1,12));
 		
 		
@@ -69,8 +74,10 @@ class Span {
 	int x;
 	int y;
 	Span(int x, int y){
-		this.x=x;
-		this.y=y;
+		if(x<=y){
+			this.x=x;
+			this.y=y;
+		}
 	}
 	
 	public String toString(){
