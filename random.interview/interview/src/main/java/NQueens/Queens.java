@@ -68,7 +68,7 @@ public class Queens {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int N=8;
+		int N=18;
 		Queens q = new Queens(N);
 		q.place(0,N);
 

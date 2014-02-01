@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 
@@ -9,6 +10,7 @@ public class Combination {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		Combination c = new Combination();
 		System.out.println(c.combinationSum(new int[]{1,1,2},40));
 		java.util.Queue<TreeNode> Q = new LinkedList<TreeNode>();

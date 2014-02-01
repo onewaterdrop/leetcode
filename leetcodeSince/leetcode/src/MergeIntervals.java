@@ -13,6 +13,7 @@ public class MergeIntervals {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("123".substring(0,1));
 		
 		Set<Character> s = new HashSet(Arrays.asList(new Character[]{'1'}));
 		Span s1 = new Span(2,3);

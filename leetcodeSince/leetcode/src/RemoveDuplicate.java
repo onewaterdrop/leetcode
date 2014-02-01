@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 
 public class RemoveDuplicate {
 
@@ -7,8 +9,8 @@ public class RemoveDuplicate {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+        java.util.Deque<Character> stk3= new LinkedList(java.util.Arrays.asList(new char[]{'1','2'}));
 //		System.out.println(removeDuplicates(new int[]{1}));
-		
 		ListNode n1 = new ListNode(1);
 		ListNode n2 = new ListNode(2);
 		ListNode n3 = new ListNode(2);
@@ -16,6 +18,7 @@ public class RemoveDuplicate {
 		ListNode n5 = new ListNode(3);
 		ListNode n6 = new ListNode(4);
 		n1.next=n2;n2.next=n3;n3.next=n4;n4.next=n5;n5.next=n6;
+		
 		
 		ListNode x = new RemoveDuplicate().deleteDuplicates(n1);
 		while(x!=null){

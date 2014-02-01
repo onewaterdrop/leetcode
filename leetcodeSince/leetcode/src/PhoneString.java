@@ -9,6 +9,7 @@ public class PhoneString {
 		// TODO Auto-generated method stub
 		System.out.println(new PhoneString().letterCombinations("34543"));
 		List<?> l = new LinkedList<Object>();
+		"123.45".toCharArray();
 
 	}
     static Map<Character,Set<Character>> m = new HashMap<Character,Set<Character>>();
