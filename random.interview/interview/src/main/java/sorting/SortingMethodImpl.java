@@ -284,6 +284,60 @@ public class SortingMethodImpl implements SortingMethod {
 	    numbers[i] = numbers[j];
 	    numbers[j] = temp;
 	  }
+
+	public int[] QuickSort2(int[] x) {
+		// TODO Auto-generated method stub
+		quicksort2(x,0,x.length-1);
+		
+		return x;
+	}
+
+	private void quicksort2(int[] A, int p, int r) {
+		
+		if(p<r){
+			int q = partition(A,p,r);
+			quicksort2(A,p,q-1);
+			quicksort2(A,q+1,r);
+		}
+		
+	}
+
+	private int partition(int[] A, int p, int r) {
+		// TODO Auto-generated method stub
+		int pivot = A[r];
+		int ex=0;
+		int i=p-1;
+		for(int j=p;j<r;j++){
+			if(A[j]<=pivot){
+				i++;
+				ex = A[i];
+				A[i]=A[j];
+				A[j]=ex;
+			}
+		}
+		
+		ex = A[i+1];
+		A[i+1]=A[r];
+		A[r]=ex;
+		
+		return i+1;
+		
+	}
+
+	public int findIthMin(int[] A, int p, int r, int i) {
+		// TODO Auto-generated method stub
+		if(p==r)return A[p];
+		int q = partition(A,p,r);
+		int k=q-p+1;
+		if(i==k){
+			return A[q];
+		}else if(i<k){
+			return findIthMin(A,p,q-1,i);
+		}else{
+			return findIthMin(A,q+1,r,i-k);
+		}
+		
+	}
 	
 	
 

@@ -15,5 +15,9 @@ public interface SortingMethod {
 	
 	public void QuickSort(int[] x,int low,int high);
 	
+	int[] QuickSort2(int[] x);
+	
+	public int findIthMin(int[]A,int p,int r, int i);
+	
 
 }
