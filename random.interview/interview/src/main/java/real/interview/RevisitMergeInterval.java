@@ -3,16 +3,65 @@ package real.interview;
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
-public class MergeInterval {
+public class RevisitMergeInterval {
+	
+	static class Interval{
+		int start;
+		int end;
+		Interval(int start,int end){
+			this.start = start;
+			this.end = end;
+		}
+		
+		public boolean contains(int x){
+			return (x-start)*(x-end)<=0;
+		}
+		
+	}
+	
+	List<Interval> merge(List<Interval> intervals){
+		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+		
+	       if(intervals ==null)return null;
+			if(intervals.size()==1)return intervals;
+			
+			Collections.sort(intervals, new Comparator<Interval>(){
+
+				public int compare(Interval o1, Interval o2) {
+					// TODO Auto-generated method stub
+					return o1.start - o2.start;
+				}
+				
+			});
+			
+			
+			int i=0;
+			while(i<intervals.size()-1){
+//				int curI=i;
+				if(intervals.get(i).end>=intervals.get(i+1).start){
+					intervals.get(i).end=Math.max(intervals.get(i).end, intervals.get(i+1).end);
+					intervals.remove(i+1);
+				}else{
+					i++;
+				}
+			//	if(curI ==i)break;
+			}
+			
+			return intervals;
+		
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		MergeInterval mi = new MergeInterval();
+		RevisitMergeInterval mi = new RevisitMergeInterval();
 		
 //		int[] ins = {0, 8, 7, 9,15, 2,10,8,11,15};
 		

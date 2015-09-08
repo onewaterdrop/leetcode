@@ -15,7 +15,7 @@ public class MergeIntervals {
 		// TODO Auto-generated method stub
 		System.out.println("123".substring(0,1));
 		
-		Set<Character> s = new HashSet(Arrays.asList(new Character[]{'1'}));
+		Set<Character> s = new HashSet(Arrays.asList('1'));
 		Span s1 = new Span(2,3);
 		Span s2 = new Span(2,6);
 		Span s3 = new Span(5,5);

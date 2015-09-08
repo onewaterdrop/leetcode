@@ -82,7 +82,7 @@ public class SortingMethodImpl implements SortingMethod {
 	
 	public void QuickSort(int[] x,int low,int high) {
 		
-		int pivot = low + (high -low)/2;
+		int pivot = (high + low)/2;
 		int i=low, j =high;
 		while(i<=j){
 			
